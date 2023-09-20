@@ -12,13 +12,13 @@
 prompt_a: .asciiz "please input the value of variable a: "
 
 .text
-    li      $v0,    4
+    li      $v0,    4                                       # print_string
     la      $a0,    prompt_a
     syscall 
 
 # 2)input an integer and assign it to a
 
-    li      $v0,    5
+    li      $v0,    5                                       # read_int
     syscall 
     move    $t1,    $v0                                     # a = $t1
 
@@ -28,13 +28,13 @@ prompt_a: .asciiz "please input the value of variable a: "
 prompt_b: .asciiz "please input the value of variable b: "
 
 .text
-    li      $v0,    4
+    li      $v0,    4                                       # print_string
     la      $a0,    prompt_b
     syscall 
 
 # 4)input integer and assign it to b
 
-    li      $v0,    5
+    li      $v0,    5                                       # read_int
     syscall 
     move    $t2,    $v0                                     # b = $t2
 
@@ -50,12 +50,15 @@ l1:	move $t3, $t1
 # 6)print out “the larger value of a,b is ” + the value
 
 print:
-.data results: "the larger value of a,b is "
+
+.data
+results: "the larger value of a,b is "
+
 .text
-    li      $v0,    4
-    l       a,      $a0,        results
+    li      $v0,    4                                       # print_string
+    la      $a0,    results
     syscall 
 
-    li      $v0,    1
+    li      $v0,    1                                       # print_int
     move    $a0,    $t3
     syscall 
