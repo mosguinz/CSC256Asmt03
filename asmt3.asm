@@ -1,6 +1,6 @@
 # CSC 256
 # 2023-09-13
-# Name:		Mos Kullathon
+# Name:		    Mos Kullathon
 # Description:	Assignment 3
 
 # Translate the following statements in the MARs:
